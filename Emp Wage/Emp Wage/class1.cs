@@ -24,20 +24,20 @@ namespace assignment8_1
         public static void CheckAttendance(int number)
         {
             int salary = 0;
-            if (number == 0)
+            switch (number)
             {
-                Console.WriteLine("Employee is absent");
-                Console.WriteLine("Salary is " + salary);
-            }
-            else if (number == 1)
-            {
-                Console.WriteLine("Employee is present part time");
-                salary = WagePerHour * 4;
-            }
-            else
-            {
-                Console.WriteLine("Employee is present full time");
-                salary = WagePerHour * 8;
+                case 0:
+                    Console.WriteLine("Empoyee is absent");
+                    salary = WagePerHour * 0;
+                    break;
+                case 1:
+                    Console.WriteLine("Employee is present part time");
+                    salary = WagePerHour * 4;
+                    break;
+                case 2:
+                    Console.WriteLine("Employee is present full time");
+                    salary = WagePerHour * 8;
+                    break;
             }
 
             Console.WriteLine("Salary is " + salary);
