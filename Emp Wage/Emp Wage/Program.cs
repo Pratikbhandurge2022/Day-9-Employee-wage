@@ -1,12 +1,13 @@
 ﻿using System;
 
-namespace Emp_Wage
+namespace assignment8_1
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            EmployeeWage.DisplayMessage();
+            EmployeeWage.GetAttendance();
         }
     }
 }
