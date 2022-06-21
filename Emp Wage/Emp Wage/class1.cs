@@ -9,6 +9,7 @@ namespace assignment8_1
     internal class EmployeeWage
     {
         public static int WagePerHour = 20;
+        public static int NoOfWorkingDaysPerMonth = 20;
         public static void DisplayMessage()
         {
             Console.WriteLine("Welcome to Employee Wage Computation  Program on Master Branch");
@@ -17,11 +18,20 @@ namespace assignment8_1
         public static void GetAttendance()
         {
             Random random = new Random();
-            int number = random.Next(0, 3);
-            CheckAttendance(number);
+            int totalsalary = 0;
+            for (int i = 1; i <= NoOfWorkingDaysPerMonth; i++)
+            {
+                int number = random.Next(0, 3);
+                int salary = CheckAttendance(number);
+                totalsalary = totalsalary + salary;
+            }
+
+            Console.WriteLine("Total salary is " + totalsalary);
+
+
         }
 
-        public static void CheckAttendance(int number)
+        public static int CheckAttendance(int number)
         {
             int salary = 0;
             switch (number)
@@ -41,6 +51,7 @@ namespace assignment8_1
             }
 
             Console.WriteLine("Salary is " + salary);
+            return salary;
         }
     }
 }
