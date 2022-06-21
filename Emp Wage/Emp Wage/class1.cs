@@ -12,16 +12,16 @@ namespace assignment8_1
         public const int IsFullTime = 1;
         public const int IsAbsent = 0;
 
-        public void GetEmployeeWage()
+        public void GetEmployeeWage(String companyName, int WagePerHr, int MaxNumberDaysPerMonth, int MaxHrs)
         {
             int Totalwage = 0;
-            int WagePerHr = 20;
-            int NumberOfDaysPerMonth = 20;
-            int Hrs = 100;
+            // int WagePerHr = 20;
+            // int NumberOfDaysPerMonth = 20;
+            // int Hrs = 100;
             int WorkingDays = 0;
             int NoOfHrs = 0;
 
-            while (WorkingDays <= NumberOfDaysPerMonth && NoOfHrs <= Hrs)
+            while (WorkingDays <= MaxNumberDaysPerMonth && NoOfHrs <= MaxHrs)
             {
 
                 Random random = new Random();
@@ -36,7 +36,7 @@ namespace assignment8_1
 
                 Totalwage = Totalwage + WagePerHr * empHrs;
             }
-            Console.WriteLine("Total wage is " + Totalwage);
+            Console.WriteLine("Total wage of employee of  " + companyName + " is " + Totalwage);
         }
 
         public int GetEmpHrs(int number)
