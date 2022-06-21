@@ -6,8 +6,9 @@ namespace assignment8_1
     {
         static void Main(string[] args)
         {
-            EmployeeWage.DisplayMessage();
-            EmployeeWage.GetAttendance();
+            EmployeeWage employeeWage = new EmployeeWage();
+
+            employeeWage.GetEmployeeWage();
         }
     }
 }

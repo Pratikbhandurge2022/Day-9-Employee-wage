@@ -8,50 +8,53 @@ namespace assignment8_1
 {
     internal class EmployeeWage
     {
-        public static int WagePerHour = 20;
-        public static int NoOfWorkingDaysPerMonth = 20;
-        public static void DisplayMessage()
-        {
-            Console.WriteLine("Welcome to Employee Wage Computation  Program on Master Branch");
-        }
+        public const int IsPartTime = 2;
+        public const int IsFullTime = 1;
+        public const int IsAbsent = 0;
 
-        public static void GetAttendance()
+        public void GetEmployeeWage()
         {
-            Random random = new Random();
-            int totalsalary = 0;
-            for (int i = 1; i <= NoOfWorkingDaysPerMonth; i++)
+            int Totalwage = 0;
+            int WagePerHr = 20;
+            int NumberOfDaysPerMonth = 20;
+            int Hrs = 100;
+            int WorkingDays = 0;
+            int NoOfHrs = 0;
+
+            while (WorkingDays <= 20 && NoOfHrs <= Hrs)
             {
+                WorkingDays++;
+                Random random = new Random();
                 int number = random.Next(0, 3);
-                int salary = CheckAttendance(number);
-                totalsalary = totalsalary + salary;
+                EmployeeWage employeeWage = new EmployeeWage();
+                int empHrs = employeeWage.GetEmpHrs(number);
+                NoOfHrs = NoOfHrs + empHrs;
+
+                Totalwage = Totalwage + WagePerHr * empHrs;
             }
-
-            Console.WriteLine("Total salary is " + totalsalary);
-
-
+            Console.WriteLine("Total wage is " + Totalwage);
         }
 
-        public static int CheckAttendance(int number)
+        public int GetEmpHrs(int number)
         {
-            int salary = 0;
+            int empHrs = 0;
             switch (number)
             {
-                case 0:
-                    Console.WriteLine("Empoyee is absent");
-                    salary = WagePerHour * 0;
-                    break;
-                case 1:
-                    Console.WriteLine("Employee is present part time");
-                    salary = WagePerHour * 4;
-                    break;
-                case 2:
-                    Console.WriteLine("Employee is present full time");
-                    salary = WagePerHour * 8;
-                    break;
-            }
+                case IsFullTime:
+                    empHrs = 8;
 
-            Console.WriteLine("Salary is " + salary);
-            return salary;
+                    break;
+                case IsPartTime:
+                    empHrs = 4;
+                    break;
+                case IsAbsent:
+                    empHrs = 0;
+                    break;
+
+            }
+            return empHrs;
+
         }
+
     }
 }
