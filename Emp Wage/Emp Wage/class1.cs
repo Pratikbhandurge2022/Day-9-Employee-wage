@@ -21,14 +21,18 @@ namespace assignment8_1
             int WorkingDays = 0;
             int NoOfHrs = 0;
 
-            while (WorkingDays <= 20 && NoOfHrs <= Hrs)
+            while (WorkingDays <= NumberOfDaysPerMonth && NoOfHrs <= Hrs)
             {
-                WorkingDays++;
+
                 Random random = new Random();
                 int number = random.Next(0, 3);
                 EmployeeWage employeeWage = new EmployeeWage();
                 int empHrs = employeeWage.GetEmpHrs(number);
                 NoOfHrs = NoOfHrs + empHrs;
+                if (NoOfHrs != 0)
+                {
+                    WorkingDays++;
+                }
 
                 Totalwage = Totalwage + WagePerHr * empHrs;
             }
