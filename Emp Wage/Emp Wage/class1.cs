@@ -17,7 +17,7 @@ namespace assignment8_1
         public static void GetAttendance()
         {
             Random random = new Random();
-            int number = random.Next(0, 2);
+            int number = random.Next(0, 3);
             CheckAttendance(number);
         }
 
@@ -28,6 +28,11 @@ namespace assignment8_1
             {
                 Console.WriteLine("Employee is absent");
                 Console.WriteLine("Salary is " + salary);
+            }
+            else if (number == 1)
+            {
+                Console.WriteLine("Employee is present part time");
+                salary = WagePerHour * 4;
             }
             else
             {
